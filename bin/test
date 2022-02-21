@@ -13,5 +13,8 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-$test = new TestCaseTest();
-$test->testRun();
+$testCase = new TestCaseTest();
+
+$testCase->setUp();
+$testCase->testRun();
+$testCase->testSetUp();
