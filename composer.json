@@ -1,0 +1,15 @@
+{
+    "name": "joe/xunit-boilerplate",
+    "description": "A boilerplate for xUnit architecture",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "XUnit\\": "src/",
+            "XUnit\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/test"
+    ],
+    "require": {}
+}
