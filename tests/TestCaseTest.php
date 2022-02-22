@@ -6,22 +6,11 @@ use XUnit\WasRun;
 
 class TestCaseTest
 {
-    private WasRun $test;
-
-    public function setUp(): void
+    public function testTemplateMethod(): void
     {
-        $this->test = new WasRun('testMethod');
-    }
+        $test = new WasRun('testMethod');
+        $test->run();
 
-    public function testRun(): void
-    {
-        $this->test->run();
-        assert($this->test->wasRun);
-    }
-
-    public function testSetUp(): void
-    {
-        $this->test->run();
-        assert($this->test->wasSetUp);
+        assert('setUp testMethod tearDown ' === $test->log);
     }
 }
