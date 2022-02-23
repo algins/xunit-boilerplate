@@ -2,6 +2,8 @@
 
 namespace XUnit;
 
+use Exception;
+
 class WasRun extends TestCase
 {
     public string $log = '';
@@ -19,6 +21,11 @@ class WasRun extends TestCase
     public function testMethod(): void
     {
         $this->log .= 'testMethod ';
+    }
+
+    public function testBrokenMethod(): void
+    {
+        throw new Exception();
     }
 
     public function tearDown(): void
