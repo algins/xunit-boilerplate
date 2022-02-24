@@ -17,7 +17,7 @@ class TestCase
     {
         $result = new TestResult();
         $result->testStarted();
-        
+
         $this->setUp();
 
         try {
