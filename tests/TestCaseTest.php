@@ -2,6 +2,7 @@
 
 namespace XUnit\Tests;
 
+use XUnit\TestResult;
 use XUnit\WasRun;
 
 class TestCaseTest
@@ -18,6 +19,15 @@ class TestCaseTest
     {
         $test = new WasRun('testBrokenMethod');
         $result = $test->run();
+
+        assert('1 run, 1 failed' === $result->summary());
+    }
+
+    public function testFailedResultFormatting(): void
+    {
+        $result = new TestResult();
+        $result->testStarted();
+        $result->testFailed();
 
         assert('1 run, 1 failed' === $result->summary());
     }

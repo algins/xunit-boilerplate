@@ -2,6 +2,8 @@
 
 namespace XUnit;
 
+use Exception;
+
 class TestCase
 {
     private string $name;
@@ -15,9 +17,15 @@ class TestCase
     {
         $result = new TestResult();
         $result->testStarted();
-
+        
         $this->setUp();
-        $this->{$this->name}();
+
+        try {
+            $this->{$this->name}();
+        } catch (Exception $e) {
+            $result->testFailed();
+        }
+
         $this->tearDown();
 
         return $result;
