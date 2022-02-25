@@ -2,6 +2,8 @@
 
 <?php
 
+use XUnit\TestResult;
+use XUnit\TestSuite;
 use XUnit\Tests\TestCaseTest;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -13,7 +15,14 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-$testCase = new TestCaseTest();
-$testCase->testTemplateMethod();
-$testCase->testFailedResult();
-$testCase->testFailedResultFormatting();
+$suite = new TestSuite();
+$suite->add(new TestCaseTest('testTemplateMethod'));
+$suite->add(new TestCaseTest('testResult'));
+$suite->add(new TestCaseTest('testFailedResult'));
+$suite->add(new TestCaseTest('testFailedResultFormatting'));
+$suite->add(new TestCaseTest('testSuite'));
+
+$result = new TestResult();
+$suite->run($result);
+
+print_r($result->summary() . "\n");
