@@ -13,6 +13,11 @@ class TestCase
         $this->name = $name;
     }
 
+    public function setUp(): void
+    {
+        //
+    }
+
     public function run(TestResult $result): void
     {
         $result->testStarted();
@@ -25,5 +30,10 @@ class TestCase
         }
 
         $this->tearDown();
+    }
+
+    public function tearDown(): void
+    {
+        //
     }
 }

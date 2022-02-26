@@ -57,9 +57,4 @@ class TestCaseTest extends TestCase
 
         assert('2 run, 1 failed' === $this->result->summary());
     }
-
-    public function tearDown(): void
-    {
-        //
-    }
 }
