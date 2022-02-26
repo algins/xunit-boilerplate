@@ -6,11 +6,11 @@ use Exception;
 
 class TestCase
 {
-    private string $name;
+    private string $methodName;
 
-    public function __construct(string $name)
+    public function __construct(string $methodName)
     {
-        $this->name = $name;
+        $this->methodName = $methodName;
     }
 
     public function setUp(): void
@@ -24,7 +24,7 @@ class TestCase
         $this->setUp();
 
         try {
-            $this->{$this->name}();
+            $this->{$this->methodName}();
         } catch (Exception $e) {
             $result->testFailed();
         }

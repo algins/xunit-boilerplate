@@ -4,13 +4,13 @@ namespace XUnit;
 
 use Exception;
 
-class WasRun extends TestCase
+class Test extends TestCase
 {
     public string $log = '';
 
-    public function __construct(string $name)
+    public function __construct(string $methodName)
     {
-        parent::__construct($name);
+        parent::__construct($methodName);
     }
 
     public function setUp(): void
